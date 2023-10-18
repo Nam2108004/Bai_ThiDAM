@@ -49,6 +49,8 @@ function editCategory() {
 
 function deleteCategory(){
     //Kiểm tra có lấy đc id trên url không
+
+    //yuiuytyuvbngcvbghjhgfdf
     if(isset($_GET['id'])){
         // gán id trên url vào biến $id_category
         $id_category = $_GET['id'];
