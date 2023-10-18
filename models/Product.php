@@ -23,16 +23,16 @@ function getProductById($ma_hh){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function updateProduct($ten_hh, $don_gia, $giam_gia, $hinh, $ngay_nhap, $ma_loai, $dac_biet, $so_luot_xem, $mo_ta){
+function updateProduct($ma_hh, $ten_hh, $don_gia, $giam_gia, $hinh, $ngay_nhap, $ma_loai, $dac_biet, $so_luot_xem, $mo_ta){
     global $conn;
-    $stmt = $conn->prepare("UPDATE hang_hoa (ten_hh, don_gia, giam_gia, hinh, ngay_nhap, ma_loai, dac_biet, so_luot_xem, mo_ta) VALUES ('$ten_hh', '$don_gia', '$giam_gia', '$hinh',' $ngay_nhap', '$ma_loai', '$dac_biet', '$so_luot_xem', '$mo_ta')");
+    $stmt = $conn->prepare("UPDATE hang_hoa SET ten_hh = '$ten_hh', don_gia = '$don_gia', giam_gia = '$giam_gia', hinh = '$hinh', ngay_nhap = '$ngay_nhap', ma_loai = '$ma_loai', dac_biet = '$dac_biet', so_luot_xem = '$so_luot_xem', mo_ta = '$mo_ta' WHERE ma_hh = '$ma_hh'");
     $stmt->execute();
     return $stmt->fetch();
 }
 
 function removeProduct($ma_hh){
     global $conn;
-    $stmt = $conn->prepare("DELETE FROM hang_hoa WHERE ma_hhh = '$ma_hh'");
+    $stmt = $conn->prepare("DELETE FROM hang_hoa WHERE ma_hh = '$ma_hh'");
     $stmt->execute();
     return $stmt->fetch();
 }

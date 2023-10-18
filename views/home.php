@@ -118,8 +118,8 @@ button.learn-more:active::before {
       <td><?php echo $row['ten_hh']?></td>
       <td><?php echo $row['don_gia']?></td>
       <td><img width="200px" src="<?php echo $row['hinh']?>" alt=""></td>
-      <td class="suaxoa"><a href="editproduct.php?masua=<?php echo $row['ma_hh'] ?>">Sửa</a></td>
-      <td class="suaxoa"><a onclick="return confirm('Bạn có muốn xóa không!')" href="xoasp.php?maxoa=<?php echo $row['ma_hh'] ?>">Xóa</a></td>
+      <td class="suaxoa"><a href="?url=edit-product&id=<?php echo $row['ma_hh'] ?>">Sửa</a></td>
+      <td><a href="javascript:void(0);" onclick="confirmDelete(<?php echo $row['ma_hh'] ?>)">Xóa</a></td>
     </tr>
 
 <?php } ?>
@@ -180,4 +180,11 @@ button.learn-more:active::before {
     <?php include 'layouts/footer.php'; ?>
     
 </body>
+<script>
+    function confirmDelete(id) {
+        if (confirm("Bạn có chắc chắn muốn xóa SP này?")) {
+            window.location.href = "?url=delete-product&id=" + id;
+        }
+    }
+</script>
 </html>
