@@ -41,4 +41,9 @@ switch ($url) {
     break;
     }
 
+    // case 'logout':
+    //     exitCustomer();
+    // break;
+             
+
 ?>

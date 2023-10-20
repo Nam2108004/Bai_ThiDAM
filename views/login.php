@@ -16,13 +16,13 @@
     <title>Form</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container"> 
         <div class="box">
             <div class="form sign_in">
                 <h3>Đăng nhập</h3>
                 
 
-                <form id="form_input" method="post">
+                <form id="form_input" action="login.php" method="post">
                     <div class="type">
                         <input type="user" placeholder="User Name" name="" id="user">
 

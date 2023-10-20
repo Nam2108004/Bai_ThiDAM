@@ -22,4 +22,32 @@ function addCustomer(){
         }
     }
 }
+function loginCustomer(){
+    include_once "views/login.php";
+    $ho_ten = $_POST['ho_ten'];
+    $mat_khau = $_POST['mat_khau'];
+
+
+if (!isset($_SESSION['ho_ten'])) {
+    // Chuyển hướng người dùng đến trang đăng nhập
+    header('Location: login.php');
+    exit();
+}
+
+// Kiểm tra quyền hạn của người dùng
+$vai_tro = $_SESSION['vai_tro'];
+if ($vai_tro !== 'admin') {
+    
+    header('Location: ?url=/');
+
+    exit();
+
+
+}
+else{
+    header('location: ?url=index_user')
+
+// Hiển thị trang chủ
+
+    // include 'views/dashboard.php';
 ?>

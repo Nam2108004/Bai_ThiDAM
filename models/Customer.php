@@ -7,4 +7,7 @@ function insertCustomer($ho_ten, $mat_khau, $email, $hinh, $kich_hoat, $vai_tro)
     $stmt->execute();
     return $stmt->fetch();
 }
+function loginCustomer(){
+    
+}
 ?>

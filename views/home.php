@@ -186,5 +186,7 @@ button.learn-more:active::before {
             window.location.href = "?url=delete-product&id=" + id;
         }
     }
+    
+    
 </script>
 </html>
