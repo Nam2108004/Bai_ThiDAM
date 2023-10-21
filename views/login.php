@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,43 +15,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
 </head>
+
 <body>
-    <div class="container"> 
+    <div class="container">
         <div class="box">
             <div class="form sign_in">
                 <h3>Đăng nhập</h3>
-                
 
-                <form id="form_input" action="login.php" method="post">
+
+                <form id="form_input" method="post">
                     <div class="type">
-                        <input type="user" placeholder="User Name" name="" id="user">
+                        <input type="user" placeholder="User Name" name="ho_ten" id="user">
 
                     </div>
                     <div class="type">
-                        <input type="password" placeholder="Password" name="" id="password">
+                        <input type="password" placeholder="Password" name="mat_khau" id="password">
 
                     </div>
 
                     <div class="forgot">
-                    <a href="quenmatkhau.php" class="quenmk">Quên mật khẩu?</a>
+                        <a href="quenmatkhau.php" class="quenmk">Quên mật khẩu?</a>
                     </div>
 
-                    <button class="btn bkg">Đăng nhập</button>
-                        
+                    <button class="btn bkg" name="login">Đăng nhập</button>
+
                 </form>
             </div>
-           
-    <!-- Form Đăng Ký -->
+
+            <!-- Form Đăng Ký -->
             <div class="form sign_up">
                 <h3>Đăng kí</h3>
 
-                <form id="form_input"  method="POST">
+                <form id="form_input" method="POST">
                     <div class="type">
 
                         <input type="text" name="ho_ten" placeholder="User name" id="name">
                     </div>
                     <div class="type">
-                        
+
                         <input type="email" name="email" placeholder="Email" id="email">
                     </div>
                     <div class="type">
@@ -63,14 +64,14 @@
 
                         <input type="password" name="confirm_mat_khau" placeholder="Confirm password" id="password">
                     </div>
-                    
+
                     <div class="type">
 
                         <input type="text" name="hinh" placeholder="Link avatar" id="password">
                     </div>
-                    
 
-                  <br>  <button class="btn bkg" type="submit">Đăng kí</button></br>
+
+                    <br> <button class="btn bkg" type="submit" name="dangky">Đăng kí</button></br>
                 </form>
             </div>
         </div>
@@ -92,11 +93,12 @@
             </div>
         </div>
     </div>
-    
+
 
     <!-- link script -->
     <script src="./public/js/main1.js"></script>
- 
+
 
 </body>
+
 </html>

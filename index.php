@@ -1,15 +1,26 @@
-<?php require 'controllers/CategoryController.php';
-      require 'controllers/ProductController.php';
-      require 'controllers/CustomerController.php';
+<?php
+session_start();
+require 'controllers/CategoryController.php';
+require 'controllers/ProductController.php';
+require 'controllers/CustomerController.php';
 $url = isset($_GET['url']) == true ? $_GET['url'] : "/";
 switch ($url) {
     case '/':
+        include 'views/home_user.php';
+        break;
+    case 'home':
+        include 'views/home_user.php';
+        break;
+    case 'chitietsanpham':
+        include 'views/detail.php';
+        break;
+    case 'admin':
         include 'views/home.php';
         break;
     case 'list-category':
         listCategory();
         break;
-    
+
     case 'add-category':
         addCategory();
         break;
@@ -28,22 +39,23 @@ switch ($url) {
         editProduct();
         break;
 
-     case 'delete-product':
+    case 'delete-product':
         deleteProduct();
         break;
 
     case 'customer':
-    include 'views/customer.php';
-    break;   
-            
+        include 'views/customer.php';
+        break;
+
     case 'login':
+        login();
         addCustomer();
-    break;
-    }
+        break;
+    case 'logout':
+        logout();
+        break;
+}
 
     // case 'logout':
     //     exitCustomer();
     // break;
-             
-
-?>

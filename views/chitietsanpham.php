@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dự án mẫu</title>
-  <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="public/css/css.css">
   <script src="https://kit.fontawesome.com/509cc166d7.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <!-- <style>
@@ -14,61 +15,62 @@
     }
   </style> -->
 </head>
+
 <body>
-<div class="boxcenter">
-  <!-- BIGIN HEADER -->
-  <?php include 'layouts/header_user.php' ?> 
-  <!-- END HEADER -->
-  <main class="catalog  mb ">
+  <div class="boxcenter">
+    <!-- BIGIN HEADER -->
+    <?php include 'layouts/header_user.php' ?>
+    <!-- END HEADER -->
+    <main class="catalog  mb ">
 
-    <div class="boxleft">
-      <div class="  mb">
-        <div class="box_title">CHI TIẾT SẢN PHẨM</div>
-        <div class="box_content">
-          <img src="img/iphoneX.jpg">
+      <div class="boxleft">
+        <div class="  mb">
+          <div class="box_title">CHI TIẾT SẢN PHẨM</div>
+          <div class="box_content">
+            <img src="img/iphoneX.jpg">
+          </div>
+        </div>
+
+        <div class="mb">
+          <div class="box_title">BÌNH LUẬN</div>
+          <div class="box_content2  product_portfolio binhluan ">
+            <table>
+              <tr>
+                <td>Sản phẩm quá đẹp</td>
+                <td>Nguyễn Thành A</td>
+                <td>20/10/2022</td>
+              </tr>
+
+          </div>
+          <div class="box_search">
+            <form action="" method="POST">
+              <input type="hidden" name="idpro" value="">
+              <input type="text" name="noidung">
+              <input type="submit" name="guibinhluan" value="Gửi bình luận">
+            </form>
+          </div>
+
+        </div>
+
+        <div class=" mb">
+          <div class="box_title">SẢN PHẨM CÙNG LOẠI</div>
+          <div class="box_content">
+            <li><a href="">Sản phẩm 1</a></li>
+            <li><a href="">Sản phẩm 1</a></li>
+            <li><a href="">Sản phẩm 1</a></li>
+            <li><a href="">Sản phẩm 1</a></li>
+            <li><a href="">Sản phẩm 1</a></li>
+          </div>
         </div>
       </div>
+      <div class="boxright">
 
-      <div class="mb">
-        <div class="box_title">BÌNH LUẬN</div>
-        <div class="box_content2  product_portfolio binhluan ">
-          <table>
-            <tr>
-              <td>Sản phẩm quá đẹp</td>
-              <td>Nguyễn Thành A</td>
-              <td>20/10/2022</td>
-            </tr>
-            
-        </div>
-        <div class="box_search">
-          <form action="" method="POST">
-            <input type="hidden" name="idpro" value="">
-            <input type="text" name="noidung"  >
-            <input type="submit" name="guibinhluan" value="Gửi bình luận">
-          </form>
-        </div>
 
-      </div>
-
-      <div class=" mb">
-<div class="box_title">SẢN PHẨM CÙNG LOẠI</div>
-        <div class="box_content">
-          <li><a href="">Sản phẩm 1</a></li>
-          <li><a href="">Sản phẩm 1</a></li>
-          <li><a href="">Sản phẩm 1</a></li>
-          <li><a href="">Sản phẩm 1</a></li>
-          <li><a href="">Sản phẩm 1</a></li>
-        </div>
-      </div>
-    </div>
-    <div class="boxright">
-
-      
       </div>
       <div class="mb">
         <div class="box_title">DANH MỤC</div>
         <div class="box_content2 product_portfolio">
-          <ul >
+          <ul>
             <li><a href="">Đồng hồ </a></li>
             <li><a href="">Laptop</a></li>
             <li><a href="">Điện thoại</a></li>
@@ -108,7 +110,7 @@
           </div>
         </div>
       </div>
-    </div>
+  </div>
 
   </main>
   <!-- BANNER 2 -->
@@ -118,7 +120,7 @@
     <div id="footer">
       <div class="footer-left">
         <div class="footer-logo">
-<img src="./img/FPTShop_logo.jpg" alt="" />
+          <img src="./img/FPTShop_logo.jpg" alt="" />
         </div>
         <div class="card_1">
           <h3>CÔNG TY ĐIỆN TỬ FPT SỐ 1 VIỆT NAM</h3>
@@ -151,10 +153,7 @@
 
           <div class="images">
             <div class="image">
-              <img
-                      src="./img/anh4.jpg"
-                      alt=""
-              />
+              <img src="./img/anh4.jpg" alt="" />
             </div>
             <div class="image">
               <img src="./img/anh1.jpg" alt="" />
@@ -189,9 +188,10 @@
     </div>
     <!-- footer section ends -->
   </footer>
-</div>
-<script src="main.js">
+  </div>
+  <script src="public/js/main.js">
 
-</script>
+  </script>
 </body>
+
 </html>
