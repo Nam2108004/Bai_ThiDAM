@@ -6,12 +6,12 @@ function listProduct()
 {
     $products = getAllProduct();
 
-    include 'views/list_product.php';
+    include 'views/admin/list_product.php';
 }
 
 function addProduct()
 {
-    include_once "views/add_product.php";
+    include_once "views/admin/add_product.php";
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ten_hh = $_POST['ten_hh'];
         $don_gia = $_POST['don_gia'];
@@ -24,7 +24,7 @@ function addProduct()
         $mo_ta = $_POST['mo_ta'];
         if (!empty($ten_hh) && !empty($don_gia)) {
             insertProduct($ten_hh, $don_gia, $giam_gia, $hinh, $ngay_nhap, $ma_loai, $dac_biet, $so_luot_xem, $mo_ta);
-            header("location: index.php");
+            header("location: ?url=admin");
         } else {
             echo 'Không thêm được do thiếu dữ liệu';
         }
@@ -41,14 +41,14 @@ function editProduct()
         $product_data = getProductById($id_product);
 
         if (isset($product_data)) {
-            include 'views/edit_product.php';
+            include 'views/admin/edit_product.php';
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $ma_hh = $_POST['ma_hh'];
                 $ten_hh = $_POST['ten_hh'];
                 $don_gia = $_POST['don_gia'];
-                $giam_gia = $_POST['giam_gia'];
+                $giam_gia = $_POST['giam_gia'] / 100 + 1;
                 $hinh = $_POST['hinh'];
                 $ngay_nhap = $_POST['ngay_nhap'];
                 $loai = $_POST['ma_loai'];
@@ -60,7 +60,7 @@ function editProduct()
             if (isset($ma_hh) && isset($ten_hh) && isset($don_gia) && isset($giam_gia) && isset($hinh) && isset($loai) && isset($dac_biet) && isset($mo_ta)) {
                 updateProduct($ma_hh, $ten_hh, $don_gia, $giam_gia, $hinh, $ngay_nhap, $loai, $dac_biet, $so_luot_xem, $mo_ta);
                 // var_dump($ten_hh); die;
-                header("location:/");
+                header("location:?url=admin");
             } else {
                 echo "Lỗi";
             }
@@ -75,6 +75,6 @@ function deleteProduct()
         $id_product = $_GET['id'];
         //gọi hàm xóa
         removeProduct($id_product);
-        header("location:index.php");
+        header("location:?url=admin");
     }
 }

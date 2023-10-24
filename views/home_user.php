@@ -415,7 +415,7 @@
         </div>
         <header id="header">
             <div id="logo">
-                <a href="http://localhost/xshop/"> <img src="http://storexphone.com/Upload/ImageDes/images/logo.png" alt="Logo"></a>
+                <a href="index.php"> <img src="http://storexphone.com/Upload/ImageDes/images/logo.png" alt="Logo"></a>
             </div>
             <div class="menu">
                 <ul>
@@ -427,7 +427,7 @@
 
                         <li>
                             <h2>
-                                <a style="text-transform: uppercase;" href="showdanhmuc.php?madanhmuc=<?php echo $rows['ma_loai'] ?>">
+                                <a style="text-transform: uppercase;" href="?url=showloai&ma_loai=<?php echo $rows['ma_loai'] ?>">
                                     <?php echo $rows['ten_loai'] ?>
                                 </a>
                             </h2>
@@ -481,12 +481,12 @@
         </div>
 
         <!-- end banner -->
-        <h1 id="h1_content">TOP SẢN PHẨM MỚI NHẤT</h1>
+        <h2 id="h1_content">TOP SẢN PHẨM MỚI NHẤT</h2>
 
         <section id="content">
 
             <?php include 'models/db.php';
-            $sql = "select * from hang_hoa";
+            $sql = "select * from hang_hoa ORDER BY ngay_nhap DESC LIMIT 16";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $rows) {
             ?>
@@ -496,10 +496,10 @@
                         <h5><?php echo $rows['ten_hh'] ?></h5>
                         <div class="price">
                             <div class="old-price">
-                                <p><?php echo $rows['don_gia'] ?>đ</p>
+                                <p><?php echo number_format($rows['don_gia'] * ($rows['giam_gia']))  ?>đ</p>
                             </div>
                             <div class="new-price">
-                                <p><?php echo $rows['don_gia'] ?>đ</p>
+                                <p><?php echo number_format($rows['don_gia'])  ?>đ</p>
                             </div>
                         </div>
                     </a>
@@ -509,24 +509,24 @@
             ?>
 
         </section>
-        <h1 id="h1_content">TOP SẢN PHẨM BÁN CHẠY</h1>
+        <h2 id="h1_content">TOP SẢN PHẨM NỔI BẬT</h2>
         <section id="content">
 
             <?php include 'models/db.php';
-            $sql = "select * from hang_hoa";
+            $sql = "select * from hang_hoa ORDER BY so_luot_xem DESC LIMIT 8";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $rows) {
             ?>
                 <article id="item_content">
-                    <a href="detail.php?masp=<?php echo $rows['ma_hh'] ?>">
+                    <a href="?url=chitietsanpham&ma_hh=<?php echo $rows['ma_hh'] ?>">
                         <img src="<?php echo $rows['hinh'] ?>" alt="">
                         <h5><?php echo $rows['ten_hh'] ?></h5>
                         <div class="price">
                             <div class="old-price">
-                                <p><?php echo $rows['don_gia'] ?>đ</p>
+                                <p><?php echo number_format($rows['don_gia'] * ($rows['giam_gia']))  ?>đ</p>
                             </div>
                             <div class="new-price">
-                                <p><?php echo $rows['don_gia'] ?>đ</p>
+                                <p><?php echo number_format($rows['don_gia'])  ?>đ</p>
                             </div>
                         </div>
                     </a>
@@ -581,31 +581,7 @@
             </section>
         </section>
 
-        <footer id="footer">
-            <div id="logo_footer">
-                <a href="#"><img src="http://storexphone.com/Upload/ImageDes/images/logo.png" alt=""></a>
-                <p>Hệ thống giày thể thao số 1 Hà Nội</p>
-                <p class="hotline"><span>Hotline</span> <a href="#">0123456789</a></p>
-                <p><span>Store 1:</span> FPT Polytecnich <br> <br> <span>Store 2:</span> FPT Polytecnich <br> <br><span>Store 3:</span> FPT Polytecnich <br> <br> </p>
-            </div>
-            <div id="dichvu">
-                <h2>DỊCH VỤ KHÁCH HÀNG</h2>
-                <p><a href="#">Giới thiệu XSHOP</a> <br> </p>
-                <p><a href="#">Hướng dẫn đặt hàng</a> <br> </p>
-                <p><a href="#">Chính sách đổi trả và bảo hành</a> <br> </p>
-                <p><a href="#">Chính sách bảo mật</a> <br> </p>
-                <p><a href="#">Liên hệ XSHOP</a> <br> </p>
-                <p><a href="#">Hệ thống cửa hàng</a></p>
-            </div>
-
-            <div id="facebook">
-                <div id="fb-root"></div>
-                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=256623368880552&autoLogAppEvents=1" nonce="aj8H3wq8"></script>
-                <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-width="250" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                    <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote>
-                </div>
-            </div>
-        </footer>
+        <?php include 'views/layouts/footer_xphone.php' ?>
     </div>
 </body>
 

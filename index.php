@@ -3,6 +3,7 @@ session_start();
 require 'controllers/CategoryController.php';
 require 'controllers/ProductController.php';
 require 'controllers/CustomerController.php';
+require 'controllers/CommentController.php';
 $url = isset($_GET['url']) == true ? $_GET['url'] : "/";
 switch ($url) {
     case '/':
@@ -12,10 +13,15 @@ switch ($url) {
         include 'views/home_user.php';
         break;
     case 'chitietsanpham':
-        include 'views/detail.php';
+        // include 'views/detail.php';
+        comment();
+        break;
+    case 'showloai':
+        include 'views/show_loai.php';
+
         break;
     case 'admin':
-        include 'views/home.php';
+        include 'views/admin/home.php';
         break;
     case 'list-category':
         listCategory();
@@ -44,7 +50,15 @@ switch ($url) {
         break;
 
     case 'customer':
-        include 'views/customer.php';
+        include 'views/admin/list_user.php';
+        band();
+        role();
+        break;
+    case 'comment':
+        include 'views/admin/list_comment.php';
+        break;
+    case 'delete-comment':
+        deleteComment();
         break;
 
     case 'login':

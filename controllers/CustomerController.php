@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once 'models/Customer.php';
 // require_once 'models/db.php';
 // Lấy dữ liệu người dùng từ form
@@ -23,6 +24,19 @@ function addCustomer()
     }
 }
 
+function comment()
+{
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $ma_hh = $_POST["ma_hh"]; // Mã sản phẩm
+        $noi_dung = $_POST["noi_dung"];
+        $ma_kh = $_POST['ma_kh'];
+        $ngay_bl = date('Y-m-d');
+        insertComment($noi_dung, $ma_kh, $ma_hh, $ngay_bl);
+    }
+    include 'views/detail.php';
+}
+
 function login()
 {
     include 'models/db.php';
@@ -33,7 +47,7 @@ function login()
             $mat_khau = $_POST['mat_khau'];
             // $sql = "select * from khach_hang where ho_ten='$ho_ten' and mat_khau='" . md5($mat_khau) . "'";
             // $kq = $conn->query($sql);
-            $stmt = $conn->prepare("SELECT * FROM khach_hang WHERE ho_ten = ? AND mat_khau = ?");
+            $stmt = $conn->prepare("SELECT * FROM khach_hang WHERE ho_ten = ? AND mat_khau = ? AND kich_hoat ='active'");
             $stmt->execute([$ho_ten, md5($mat_khau)]);
             $row = $stmt->fetch();
             if ($row) {
@@ -48,7 +62,7 @@ function login()
                     header("location: ?url=admin");
                 } else {
                     // user
-                    header("location: ?url=/");
+                    header("location: index.php");
                 }
             } else {
                 echo '<span style="color:#AFA;text-align:center;"><br>Tài khoản hoặc mật khẩu không hợp lệ</span>';
@@ -65,6 +79,83 @@ function logout()
     session_destroy();
 
     // Chuyển hướng người dùng
-    header("Location: ?url=/");
+    header("Location: index.php");
     exit();
+}
+
+
+function band()
+{
+    global $conn;
+
+    if (isset($_POST['btn-band'])) {
+        $ma_kh = $_POST['ma_kh'];
+
+        try {
+            // Lấy kich_hoat hiện tại bằng cách truy vấn
+            $query_select_role = "SELECT kich_hoat FROM khach_hang WHERE ma_kh = :ma_kh";
+            $stmt = $conn->prepare($query_select_role);
+            $stmt->bindParam(':ma_kh', $ma_kh);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $currentKichHoat = $row['kich_hoat'];
+
+            // Xác định giá trị mới cho kich_hoat
+            $newKichHoat = ($currentKichHoat == 'active') ? 'band' : 'active';
+
+            // Thực hiện truy vấn UPDATE để cập nhật kich_hoat mới
+            $query_update_kich_hoat = "UPDATE khach_hang SET kich_hoat = :new_kich_hoat WHERE ma_kh = :ma_kh";
+            $stmt = $conn->prepare($query_update_kich_hoat);
+            $stmt->bindParam(':new_kich_hoat', $newKichHoat);
+            $stmt->bindParam(':ma_kh', $ma_kh);
+
+            if ($stmt->execute()) {
+                // Cập nhật thành công
+                header("Location: ?url=customer");
+                // echo 'done';
+            } else {
+                echo "Lỗi khi cập nhật kich_hoat.";
+            }
+        } catch (PDOException $e) {
+            echo "Lỗi truy vấn hoặc kết nối CSDL: " . $e->getMessage();
+        }
+    }
+}
+function role()
+{
+    global $conn;
+
+    if (isset($_POST['btn-role'])) {
+        $ma_kh = $_POST['ma_kh'];
+
+        try {
+            $query_select_role = "SELECT vai_tro FROM khach_hang WHERE ma_kh = :ma_kh";
+            $stmt = $conn->prepare($query_select_role);
+            $stmt->bindParam(':ma_kh', $ma_kh);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $currentRole = $row['vai_tro'];
+
+            // Xác định giá trị mới cho kich_hoat
+            $newRole = ($currentRole == 'user') ? 'admin' : 'user';
+
+            // Thực hiện truy vấn UPDATE để cập nhật kich_hoat mới
+            $query_update_role = "UPDATE khach_hang SET vai_tro = :new_role WHERE ma_kh = :ma_kh";
+            $stmt = $conn->prepare($query_update_role);
+            $stmt->bindParam(':new_role', $newRole);
+            $stmt->bindParam(':ma_kh', $ma_kh);
+
+            if ($stmt->execute()) {
+                // Cập nhật thành công
+                header("Location: ?url=customer");
+                // echo 'done';
+            } else {
+                echo "Lỗi khi cập nhật.";
+            }
+        } catch (PDOException $e) {
+            echo "Lỗi truy vấn hoặc kết nối CSDL: " . $e->getMessage();
+        }
+    }
 }
