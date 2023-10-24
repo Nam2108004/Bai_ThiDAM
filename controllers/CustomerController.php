@@ -24,18 +24,39 @@ function addCustomer()
     }
 }
 
-function comment()
+function editCustomer()
 {
+    //Kiểm tra có lấy đc id trên url không
+    if (isset($_SESSION['ma_kh'])) {
+        include 'views/profile.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $ma_hh = $_POST["ma_hh"]; // Mã sản phẩm
-        $noi_dung = $_POST["noi_dung"];
-        $ma_kh = $_POST['ma_kh'];
-        $ngay_bl = date('Y-m-d');
-        insertComment($noi_dung, $ma_kh, $ma_hh, $ngay_bl);
+        //Kiểm tra sever có trả về dữ liệu không
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            //Tạo biến để gán dữ liệu bên form
+            $ma_kh = $_SESSION['ma_kh'];
+            $ho_ten = $_POST['ho_ten'];
+            $email = $_POST['email'];
+            $mat_khau_cu = $_POST['mat_khau_cu'];
+            $mat_khau = $_POST['mat_khau'];
+            $mat_khau_moi = $_POST['mat_khau_moi'];
+            $email = $_POST['email'];
+            $hinh = $_POST['hinh'];
+            if ($mat_khau_cu == md5($mat_khau)) {
+                updateCustomer($ma_kh, $ho_ten, $mat_khau_moi, $email, $hinh);
+                echo "<script>alert('Thông báo: Cập nhật thông tin thành công.');</script>";
+                header("location: ?url=profile");
+            } else {
+                echo "<script>alert('Thông báo: Mật khẩu cũ không chính xác.');</script>";
+            }
+        } else {
+            echo "Lỗi";
+        }
+    } else {
+        echo "Lỗi";
     }
-    include 'views/detail.php';
 }
+
+
 
 function login()
 {

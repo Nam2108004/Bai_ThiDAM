@@ -98,12 +98,13 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Tên</th>
-            <th scope="col">Giá</th>
-            <th scope="col">Ảnh Sản Phẩm</th>
-            <th scope="col">Sửa</th>
-            <th scope="col">Xóa</th>
+            <th style="text-align: center;" scope="col">ID</th>
+            <th style="text-align: center;" scope="col">Tên</th>
+            <th style="text-align: center;" scope="col">Giá</th>
+            <th style="text-align: center;" scope="col">Ảnh Sản Phẩm</th>
+            <th style="text-align: center;" scope="col">Trạng thái(1 = Active, 0 = Đã ẩn)</th>
+            <th style="text-align: center;" scope="col">Sửa</th>
+            <th style="text-align: center;" scope="col">Xóa</th>
           </tr>
         </thead>
         <tbody>
@@ -114,12 +115,19 @@
 
           ?>
             <tr>
-              <th scope="row"><?php echo $row['ma_hh'] ?></th>
-              <td><?php echo $row['ten_hh'] ?></td>
-              <td><?php echo number_format($row['don_gia'])  ?></td>
-              <td><img width="200px" src="<?php echo $row['hinh'] ?>" alt=""></td>
-              <td class="suaxoa"><a href="?url=edit-product&id=<?php echo $row['ma_hh'] ?>">Sửa</a></td>
-              <td><a href="javascript:void(0);" onclick="confirmDelete(<?php echo $row['ma_hh'] ?>)">Xóa</a></td>
+              <th style="text-align: center;" scope="row"><?php echo $row['ma_hh'] ?></th>
+              <td style="text-align: center;"><?php echo $row['ten_hh'] ?></td>
+              <td style="text-align: center;"><?php echo number_format($row['don_gia'])  ?></td>
+              <td style="text-align: center;"><img width="200px" src="<?php echo $row['hinh'] ?>" alt=""></td>
+              <td style="text-align: center;"><?php echo $row['deleted'] ?></td>
+              <td style="text-align: center;" class="suaxoa"><a href="?url=edit-product&id=<?php echo $row['ma_hh'] ?>">Sửa</a></td>
+              <!-- <td style="text-align: center;"><a href="javascript:void(0);" onclick="confirmDelete(<?php echo $row['ma_hh'] ?>)">Xóa</a></td> -->
+              <td style="text-align: center;" class="suaxoa">
+                <form method="post">
+                  <input type="hidden" name="ma_hh" value="<?php echo $row['ma_hh'] ?>">
+                  <button type="submit" name="btn">Hidden</button>
+                </form>
+              </td>
             </tr>
 
           <?php } ?>

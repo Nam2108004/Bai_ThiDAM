@@ -98,9 +98,11 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">ID Danh Mục</th>
-            <th scope="col">Tên danh mục</th>
-            <th scope="col">Action</th>
+            <th style="text-align: center;" scope="col">ID Danh Mục</th>
+            <th style="text-align: center;" scope="col">Tên danh mục</th>
+            <th style="text-align: center;" scope="col">Trạng thái(1 = Active, 0 = Đã ẩn)</th>
+            <th style="text-align: center;" scope="col">Sửa</th>
+            <th style="text-align: center;" scope="col">Xóa</th>
 
 
           </tr>
@@ -114,10 +116,17 @@
 
           ?>
             <tr>
-              <th scope="row"><?php echo $row['ma_loai'] ?></th>
-              <td><?php echo $row['ten_loai'] ?></td>
+              <th style="text-align: center;" scope="row"><?php echo $row['ma_loai'] ?></th>
+              <td style="text-align: center;"><?php echo $row['ten_loai'] ?></td>
+              <td style="text-align: center;"><?php echo $row['deleted'] ?></td>
 
-              <td class="suaxoa"><a href="?url=edit-category&id=<?php echo $row['ma_loai'] ?>">Sửa</a> <a href="javascript:void(0);" onclick="confirmDelete(<?php echo $row['ma_loai'] ?>)">Xóa</a></td>
+              <td style="text-align: center;" class="suaxoa"><a href="?url=edit-category&id=<?php echo $row['ma_loai'] ?>">Sửa</a> </td>
+              <td style="text-align: center;" class="suaxoa">
+                <form method="post">
+                  <input type="hidden" name="ma_loai" value="<?php echo $row['ma_loai'] ?>">
+                  <button type="submit" name="btn">Hidden</button>
+                </form>
+              </td>
 
             </tr>
 

@@ -11,63 +11,7 @@
 
 <body>
     <div id="wapper">
-        <div id="topbar">
-            <a href="#">
-                <h2> HỆ THỐNG CỬA HÀNG XPHONE</h2>
-            </a>
-            <ul>
-                <li>
-                    <p style="color:red; font-size: 17px;font-weight: bold; margin: 0;">
-                        Hello <?php
-
-                                if (isset($_SESSION['ma_kh'])) {
-                                    echo $_SESSION['ho_ten'];
-                                ?>
-                            <a class="active" style="font-weight: normal;" href="?url=logout"> | Logout |</a>
-                        <?php } else {
-                                    echo "you!";
-                        ?>
-                            <a class="active" style="font-weight: normal;" href="?url=login"> =>Login<= </a>
-                                <?php }
-                                ?>
-                    </p>
-                </li>
-                <li><a href="product.php">KIỂM TRA ĐƠN HÀNG</a></li>
-                <li><a href="product.php">TIN TỨC</a></li>
-                <li><a href="product.php">LIÊN HỆ</a></li>
-            </ul>
-        </div>
-        <header id="header">
-            <div id="logo">
-                <a href="index.php"> <img src="http://storexphone.com/Upload/ImageDes/images/logo.png" alt="Logo"></a>
-            </div>
-            <div class="menu">
-                <ul>
-                    <?php include 'models/db.php';
-                    $sql = "select * from loai";
-                    $kq = $conn->query($sql);
-                    foreach ($kq as $key => $rows) {
-                    ?>
-
-                        <li>
-                            <h2>
-                                <a style="text-transform: uppercase;" href="?url=showloai&ma_loai=<?php echo $rows['ma_loai'] ?>">
-                                    <?php echo $rows['ten_loai'] ?>
-                                </a>
-                            </h2>
-                        </li>
-                    <?php
-                    }
-                    ?>
-                    <div id="nav">
-                        <a href="product.php"> <img src="public/img/search.png" alt=""></a>
-                        <a href="product.php"><img src="public/img/giohang.png" alt=""></a>
-                    </div>
-                </ul>
-
-            </div>
-
-        </header>
+        <?php include 'layouts/header_user.php' ?>
 
         <div id="title_product">
             <h1>PRODUCT</h1>
@@ -101,7 +45,7 @@
 
         <section id="content">
             <?php 'models/db.php';
-            $sql = "select * from hang_hoa where ma_loai='$ma_loai'";
+            $sql = "select * from hang_hoa where ma_loai='$ma_loai' and deleted = 1";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $rows) {
             ?>

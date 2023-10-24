@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION['vai_tro']) || $_SESSION['vai_tro'] !== 'admin') {
+   header("Location: index.php");
+   exit;
+}
+?>
 <header>
    <style>
       .header {
@@ -41,14 +47,15 @@
    </style>
    <div class=" header">
       <div class="logo">
-         <img style="width:200px" src="http://storexphone.com/Upload/ImageDes/images/logo.png" alt="">
+         <a href="index.php"><img style="width:200px" src="http://storexphone.com/Upload/ImageDes/images/logo.png" alt=""></a>
+
       </div>
       <div class="link">
          <ul>
-            <li><a href="#">Thông tin</a></li>
-            <li><a href="?url=login">Đăng nhập</a></li>
-            <li><a href="?url=logout">Logout</a></li>
-            <li><a href="#"><i class='bx bxs-cart'></i></a></li>
+            <li><a href="?url=profile">Thông tin</a></li>
+            <!-- <li><a href="?url=login">Đăng nhập</a></li> -->
+            <li><a href="?url=logout">Đăng xuất</a></li>
+            <!-- <li><a href="#"><i class='bx bxs-cart'></i></a></li> -->
          </ul>
       </div>
 
@@ -69,6 +76,9 @@
          </li>
          <li class="dropdown">
             <a class="dropdownbtn" href="?url=comment">Quản lí bình luận</a>
+         </li>
+         <li class="dropdown">
+            <a class="dropdownbtn" href="?url=thongke">Thống kê</a>
          </li>
 
 

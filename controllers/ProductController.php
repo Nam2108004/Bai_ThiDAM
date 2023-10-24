@@ -9,6 +9,34 @@ function listProduct()
     include 'views/admin/list_product.php';
 }
 
+function detailProduct()
+{
+
+    if (isset($_GET["ma_hh"])) {
+        $ma_hh = $_GET['ma_hh'];
+        global $conn;
+        // Truy vấn SQL để tăng giá trị so_luot_xem lên 1 cho sản phẩm cụ thể
+        $sql = "UPDATE hang_hoa SET so_luot_xem = so_luot_xem + 1 WHERE ma_hh = $ma_hh";
+        $conn->query($sql);
+    } else {
+        echo "Lỗi";
+        exit;
+    }
+    include_once "views/detail.php";
+}
+
+function comment()
+{
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $ma_hh = $_POST["ma_hh"]; // Mã sản phẩm
+        $noi_dung = $_POST["noi_dung"];
+        $ma_kh = $_POST['ma_kh'];
+        $ngay_bl = date('Y-m-d');
+        insertComment($noi_dung, $ma_kh, $ma_hh, $ngay_bl);
+        header("location: ?url=chitietsanpham&ma_hh= $ma_hh");
+    }
+}
 function addProduct()
 {
     include_once "views/admin/add_product.php";
@@ -76,5 +104,42 @@ function deleteProduct()
         //gọi hàm xóa
         removeProduct($id_product);
         header("location:?url=admin");
+    }
+}
+
+function hiddenProduct()
+{
+    global $conn;
+
+    if (isset($_POST['btn'])) {
+        $ma_hh = $_POST['ma_hh'];
+
+        try {
+            $query_select_deleted = "SELECT deleted FROM hang_hoa WHERE ma_hh = :ma_hh";
+            $stmt = $conn->prepare($query_select_deleted);
+            $stmt->bindParam(':ma_hh', $ma_hh);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $currentDeleted = $row['deleted'];
+
+
+            $newDeleted = ($currentDeleted == 1) ? 0 : 1;
+
+            $query_update_deleted = "UPDATE hang_hoa SET deleted = :new_deleted WHERE ma_hh = :ma_hh";
+            $stmt = $conn->prepare($query_update_deleted);
+            $stmt->bindParam(':new_deleted', $newDeleted);
+            $stmt->bindParam(':ma_hh', $ma_hh);
+
+            if ($stmt->execute()) {
+                // Cập nhật thành công
+                header("Location: ?url=admin");
+                // echo 'done';
+            } else {
+                echo "Lỗi khi cập nhật.";
+            }
+        } catch (PDOException $e) {
+            echo "Lỗi truy vấn hoặc kết nối CSDL: " . $e->getMessage();
+        }
     }
 }

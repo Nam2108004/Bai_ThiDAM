@@ -30,10 +30,16 @@ function updateProduct($ma_hh, $ten_hh, $don_gia, $giam_gia, $hinh, $ngay_nhap, 
     return $stmt->fetch();
 }
 
+function insertComment($noi_dung, $ma_kh, $ma_hh, $ngay_bl)
+{
+    global $conn;
+    $sql = "INSERT INTO binh_luan (noi_dung, ma_kh, ma_hh, ngay_bl) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$noi_dung, $ma_kh, $ma_hh, $ngay_bl]);
+}
 function removeProduct($ma_hh){
     global $conn;
     $stmt = $conn->prepare("DELETE FROM hang_hoa WHERE ma_hh = '$ma_hh'");
     $stmt->execute();
     return $stmt->fetch();
 }
-?>  

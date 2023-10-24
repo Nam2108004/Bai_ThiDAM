@@ -61,3 +61,40 @@ function deleteCategory()
         header("location: ?url=list-category");
     }
 }
+
+function hiddenCategory()
+{
+    global $conn;
+
+    if (isset($_POST['btn'])) {
+        $ma_loai = $_POST['ma_loai'];
+
+        try {
+            $query_select_deleted = "SELECT deleted FROM loai WHERE ma_loai = :ma_loai";
+            $stmt = $conn->prepare($query_select_deleted);
+            $stmt->bindParam(':ma_loai', $ma_loai);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $currentDeleted = $row['deleted'];
+
+
+            $newDeleted = ($currentDeleted == 1) ? 0 : 1;
+
+            $query_update_deleted = "UPDATE loai SET deleted = :new_deleted WHERE ma_loai = :ma_loai";
+            $stmt = $conn->prepare($query_update_deleted);
+            $stmt->bindParam(':new_deleted', $newDeleted);
+            $stmt->bindParam(':ma_loai', $ma_loai);
+
+            if ($stmt->execute()) {
+                // Cập nhật thành công
+                header("Location: ?url=list-category");
+                // echo 'done';
+            } else {
+                echo "Lỗi khi cập nhật.";
+            }
+        } catch (PDOException $e) {
+            echo "Lỗi truy vấn hoặc kết nối CSDL: " . $e->getMessage();
+        }
+    }
+}

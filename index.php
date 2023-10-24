@@ -12,8 +12,13 @@ switch ($url) {
     case 'home':
         include 'views/home_user.php';
         break;
+    case 'profile':
+        // include 'views/profile.php';
+        editCustomer();
+        break;
     case 'chitietsanpham':
         // include 'views/detail.php';
+        detailProduct();
         comment();
         break;
     case 'showloai':
@@ -22,9 +27,11 @@ switch ($url) {
         break;
     case 'admin':
         include 'views/admin/home.php';
+        hiddenProduct();
         break;
     case 'list-category':
         listCategory();
+        hiddenCategory();
         break;
 
     case 'add-category':
@@ -59,6 +66,9 @@ switch ($url) {
         break;
     case 'delete-comment':
         deleteComment();
+        break;
+    case 'thongke':
+        include 'views/admin/thongke.php';
         break;
 
     case 'login':

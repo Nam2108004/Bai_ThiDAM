@@ -27,14 +27,14 @@ require "./models/db.php";
             <?php foreach ($product_data as $product) : ?>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên hàng hóa</label>
-                    <input name="ten_hh" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $product['ten_hh'] ?>">
+                    <input name="ten_hh" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $product['ten_hh'] ?>" required>
                     <input name="ma_hh" type="hidden" value="<?php echo $product['ma_hh'] ?>">
                     <input name="ngay_nhap" type="hidden" value="<?php echo $product['ngay_nhap'] ?>">
                     <input name="so_luot_xem" type="hidden" value="<?php echo $product['so_luot_xem'] ?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Giá</label>
-                    <input name="don_gia" type="number" class="form-control" value="<?php echo $product['don_gia'] ?>">
+                    <input name="don_gia" type="number" class="form-control" value="<?php echo $product['don_gia'] ?>" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Giảm giá(%)</label>
@@ -46,7 +46,7 @@ require "./models/db.php";
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Danh mục</label>
-                    <select name="ma_loai" class="form-select" aria-label="Default select example">
+                    <select name="ma_loai" class="form-select" aria-label="Default select example" required>
                         <option selected>Chọn danh mục</option>
                         <?php
                         $sql = "SELECT * FROM loai";
@@ -59,7 +59,7 @@ require "./models/db.php";
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Đặc biệt</label>
-                    <select name="dac_biet" class="form-select" aria-label="Default select example">
+                    <select name="dac_biet" class="form-select" aria-label="Default select example" required>
                         <option selected value="<?php echo $product['dac_biet'] ?>"><?php echo $product['dac_biet'] ?></option>
                         <option value="Đặc Biệt">Hàng đặc biệt</option>
                         <option value="Thường">Hàng thường</option>
@@ -67,7 +67,7 @@ require "./models/db.php";
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Mô tả</label>
-                    <textarea class="form-control" name="mo_ta" id="" cols="30" rows="10"><?php echo $product['mo_ta'] ?></textarea>
+                    <textarea class="form-control" name="mo_ta" id="" cols="30" rows="10" required><?php echo $product['mo_ta'] ?></textarea>
                 </div>
             <?php endforeach ?>
 
