@@ -47,7 +47,6 @@ require "./models/db.php";
                 <div class="mb-3">
                     <label class="form-label">Danh mục</label>
                     <select name="ma_loai" class="form-select" aria-label="Default select example" required>
-                        <option selected>Chọn danh mục</option>
                         <?php
                         $sql = "SELECT * FROM loai";
                         $result = $conn->query($sql);

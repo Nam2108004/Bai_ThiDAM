@@ -25,18 +25,7 @@ function detailProduct()
     include_once "views/detail.php";
 }
 
-function comment()
-{
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $ma_hh = $_POST["ma_hh"]; // Mã sản phẩm
-        $noi_dung = $_POST["noi_dung"];
-        $ma_kh = $_POST['ma_kh'];
-        $ngay_bl = date('Y-m-d');
-        insertComment($noi_dung, $ma_kh, $ma_hh, $ngay_bl);
-        header("location: ?url=chitietsanpham&ma_hh= $ma_hh");
-    }
-}
 function addProduct()
 {
     include_once "views/admin/add_product.php";
@@ -61,7 +50,7 @@ function addProduct()
 
 function editProduct()
 {
-
+    // Kiểm tra đã get được id chưa
     if (isset($_GET['id'])) {
 
         $id_product = $_GET['id'];

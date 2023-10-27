@@ -9,7 +9,3 @@ try{
 }catch(PDOException $e){
     echo "faile".$e->getMessage();
 }
-
-
-?>
-
