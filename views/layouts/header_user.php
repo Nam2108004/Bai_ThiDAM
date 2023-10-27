@@ -15,9 +15,12 @@
                      if (isset($_SESSION['vai_tro'])  && $_SESSION['vai_tro'] == 'admin') {
                         echo '<a class="active" style="font-weight: normal;" href="?url=admin">| Admin Page |</a>';
                      }
+                     else{
+
+                        echo ' <a class="active" style="font-weight: normal;" href="?url=logout"> | Logout |</a>';
+                     }
                   ?>
 
-               <!-- <a class="active" style="font-weight: normal;" href="?url=logout"> | Logout |</a> -->
             <?php } else {
                      echo "you!";
             ?>

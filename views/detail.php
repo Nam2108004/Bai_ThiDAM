@@ -223,11 +223,11 @@
         <div id="text">
             <div class="text-left">
                 <p class="to">Chất lượng sản phẩm?</p>
-                <p class="nho">Sản phẩm luôn được XSHOP kiểm định, đánh giá với chất lượng cao nhất trước khi đến tay khách hàng!</p>
+                <p class="nho">Sản phẩm luôn được Xphone kiểm định, đánh giá với chất lượng cao nhất trước khi đến tay khách hàng!</p>
                 <p class="to">Sai màu sản phẩm?</p>
                 <p class="nho">Vì 1 số yếu tố khách quan như độ sáng màn hình, chất lượng màn hình nên sản phẩm có thể ko đúng màu.</p>
                 <p class="to">Hàng có sẵn không?</p>
-                <p class="nho">Sản phẩm hiện có sẵn tại hệ thống cửa hàng XSHOP và online tại website.</p>
+                <p class="nho">Sản phẩm hiện có sẵn tại hệ thống cửa hàng Xphone và online tại website.</p>
                 <p class="to">Bảo hành sản phẩm</p>
                 <p class="nho">Sản phẩm được bảo hành trong 30 ngày với bất kỳ lỗi nào. Hàng SALE không được bảo hành.</p>
             </div>
@@ -239,7 +239,7 @@
                 <p class="nho">Hệ thống cửa hàng và Online làm việc từ 8:30 - 22:00 hàng ngày.</p>
                 <p class="to">Đổi hàng như thế nào?</p>
                 <p class="nho">Việc đổi hàng rất dễ dàng và chúng tôi luôn muốn khách hàng ưng ý nhất. Hãy liên hệ fanpage để đổi!</p>
-                <p class="to">Chọn sai size giày?</p>
+                <p class="to">Chọn mẫu mã?</p>
                 <p class="nho">Bạn có thể qua cửa hàng hoặc gửi lại để đổi hàng với sản phẩm mới 100%. Còn nguyên tem mác, hoá đơn mua hàng.</p>
             </div>
         </div>

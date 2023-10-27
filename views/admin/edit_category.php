@@ -10,12 +10,13 @@ ob_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dự án mẫu</title>
-
+    <link rel="stylesheet" href="public/css/css.css">
+    <link rel="stylesheet" href="public/css/home.css">
 
 </head>
 
 <body>
-
+    <?php include 'views/layouts/header_admin.php' ?>
     <main class="mb">
         <h2 style="text-align:center">Sửa Danh Mục</h2>
 
@@ -35,6 +36,7 @@ ob_start();
 
     </main>
 
+    <?php include 'views/layouts/footer_xphone.php' ?>
 </body>
 
 </html>
