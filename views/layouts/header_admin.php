@@ -47,7 +47,7 @@ if (!isset($_SESSION['vai_tro']) || $_SESSION['vai_tro'] !== 'admin') {
    </style>
    <div class=" header">
       <div class="logo">
-         <a href="index.php"><img style="width:200px" src="http://storexphone.com/Upload/ImageDes/images/logo.png" alt=""></a>
+         <a href="index.php"><img style="width:200px" src="public/img/logo.png" alt=""></a>
 
       </div>
       <div class="link">

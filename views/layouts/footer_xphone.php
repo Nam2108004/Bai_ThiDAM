@@ -1,6 +1,6 @@
 <footer id="footer">
     <div id="logo_footer">
-        <a href="#"><img src="http://storexphone.com/Upload/ImageDes/images/logo.png" alt=""></a>
+        <a href="#"><img src="public/img/logo.png" alt=""></a>
         <p>Hệ thống điện thoại số 1 Hà Nội</p>
         <p class="hotline"><span>Hotline</span> <a href="#">0123456789</a></p>
         <p><span>Store 1:</span> FPT Shop <br> <br> <span>Store 2:</span> FPT Sofware <br> <br><span>Store 3:</span> FPT Polytecnich <br> <br> </p>
