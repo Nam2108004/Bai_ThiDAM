@@ -172,7 +172,7 @@
         </div>
         <header id="header">
             <div id="logo">
-                <a href="index.php"> <img src="http://storexphone.com/Upload/ImageDes/images/logo.png" alt="Logo"></a>
+                <a href="index.php"> <img src="public/img/logo.png" alt="Logo"></a>
             </div>
             <div class="menu">
                 <ul>
