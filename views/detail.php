@@ -212,6 +212,11 @@
                 <div class="buy">
                     <input type="submit" value="Mua Ngay">
                 </div>
+
+                <div class="buy">
+                    <input type="submit" value="Thêm vào giỏ hàng">
+                </div>
+
                 <div class="chitiet">
                     <h2>Mô tả</h2>
                     <p><?php echo $kqsp['mo_ta'] ?></p>
