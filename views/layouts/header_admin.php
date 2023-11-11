@@ -47,7 +47,7 @@ if (!isset($_SESSION['vai_tro']) || $_SESSION['vai_tro'] !== 'admin') {
    </style>
    <div class=" header">
       <div class="logo">
-         <a href="index.php"><img style="width:200px" src="public/img/logo.png" alt=""></a>
+         <a href="index.php"><img style="width:100px" src="public/img/logo.jpg" alt=""></a>
 
       </div>
       <div class="link">

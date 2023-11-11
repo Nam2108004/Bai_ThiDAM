@@ -22,7 +22,7 @@
         <?php include 'models/db.php';
         if (isset($_GET['ma_loai'])) {
             $ma_loai = $_GET['ma_loai'];
-            $sqldanhmuc = "select * from hang_hoa where ma_loai='$ma_loai'";
+            $sqldanhmuc = "select * from categorys where ma_loai='$ma_loai'";
             $kqdanhmuc = $conn->query($sqldanhmuc)->fetch();
         }
         ?>
@@ -30,7 +30,7 @@
         <!--  -->
         <h1 id="h1_content">
             <?php include 'models/db.php';
-            $sql = "select * from loai where ma_loai='$ma_loai'";
+            $sql = "select * from categorys where ma_loai='$ma_loai'";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $rows) {
             ?>
@@ -45,7 +45,7 @@
 
         <section id="content">
             <?php 'models/db.php';
-            $sql = "select * from hang_hoa where ma_loai='$ma_loai' and deleted = 1";
+            $sql = "select * from products where ma_loai='$ma_loai' and deleted = 1";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $rows) {
             ?>

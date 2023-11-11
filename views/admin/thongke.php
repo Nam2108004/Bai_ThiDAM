@@ -112,8 +112,8 @@
                     $sql = "SELECT l.ma_loai, l.ten_loai, COUNT(h.ma_hh) AS so_luong, 
                     MIN(h.don_gia) AS gia_nho_nhat, MAX(h.don_gia) AS gia_lon_nhat, 
                     AVG(h.don_gia) AS gia_trung_binh
-             FROM loai AS l
-             LEFT JOIN hang_hoa AS h ON l.ma_loai = h.ma_loai
+             FROM categorys AS l
+             LEFT JOIN products AS h ON l.ma_loai = h.ma_loai
              GROUP BY l.ma_loai, l.ten_loai";
 
                     $result = $conn->query($sql);
@@ -163,15 +163,15 @@
 <script>
     // Đảm bảo rằng bạn đã lấy dữ liệu từ cơ sở dữ liệu trước
     <?php
-    $sql = "SELECT loai.ten_loai, COUNT(hang_hoa.ma_hh) as so_luong
-            FROM loai
-            LEFT JOIN hang_hoa ON loai.ma_loai = hang_hoa.ma_loai
-            GROUP BY loai.ten_loai";
+    $sql = "SELECT categorys.ten_loai, COUNT(products.ma_hh) as so_luong
+            FROM categorys
+            LEFT JOIN products ON categorys.ma_loai = products.ma_loai
+            GROUP BY categorys.ten_loai";
     $loai = $conn->query($sql);
-    $sql = "SELECT loai.ten_loai, COUNT(hang_hoa.ma_hh) as so_luong
-            FROM loai
-            LEFT JOIN hang_hoa ON loai.ma_loai = hang_hoa.ma_loai
-            GROUP BY loai.ten_loai";
+    $sql = "SELECT categorys.ten_loai, COUNT(products.ma_hh) as so_luong
+            FROM categorys
+            LEFT JOIN products ON categorys.ma_loai = products.ma_loai
+            GROUP BY categorys.ten_loai";
     $so_luong = $conn->query($sql);
     ?>
 

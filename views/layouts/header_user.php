@@ -1,6 +1,6 @@
 <div id="topbar">
    <a href="#">
-      <h2> HỆ THỐNG CỬA HÀNG XPHONE</h2>
+      <h2> HỆ THỐNG CỬA HÀNG VIRTUAL PHONE</h2>
    </a>
    <ul>
       <li>
@@ -41,7 +41,7 @@
    <div class="menu">
       <ul>
          <?php include 'models/db.php';
-         $sql = "select * from loai where deleted = 1";
+         $sql = "select * from categorys where deleted = 1";
          $kq = $conn->query($sql);
          foreach ($kq as $key => $rows) {
          ?>

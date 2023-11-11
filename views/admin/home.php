@@ -110,7 +110,7 @@
         </thead>
         <tbody>
           <?php
-          $sql = "SELECT * FROM hang_hoa";
+          $sql = "SELECT * FROM products";
           $result = $conn->query($sql);
           foreach ($result as $key => $row) {
 
@@ -149,7 +149,7 @@
 
           <ul>
             <?php
-            $sql = "SELECT * FROM loai";
+            $sql = "SELECT * FROM categorys";
             $result = $conn->query($sql);
             foreach ($result as $key => $row) {
 
@@ -165,7 +165,7 @@
         <div class="box_title">Danh Sách Người Dùng</div>
         <div class="box_content">
           <?php
-          $sql = "SELECT * FROM khach_hang";
+          $sql = "SELECT * FROM clients";
           $result = $conn->query($sql);
           foreach ($result as $key => $row) {
 

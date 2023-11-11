@@ -1,17 +1,17 @@
 <footer id="footer">
     <div id="logo_footer">
-        <a href="#"><img src="public/img/logo.png" alt=""></a>
+        <a href="#"><img src="public/img/logo.jpg" alt=""></a>
         <p>Hệ thống điện thoại số 1 Hà Nội</p>
         <p class="hotline"><span>Hotline</span> <a href="#">0123456789</a></p>
         <p><span>Store 1:</span> FPT Shop <br> <br> <span>Store 2:</span> FPT Sofware <br> <br><span>Store 3:</span> FPT Polytecnich <br> <br> </p>
     </div>
     <div id="dichvu">
         <h2>DỊCH VỤ KHÁCH HÀNG</h2>
-        <p><a href="#">Giới thiệu XSHOP</a> <br> </p>
+        <p><a href="#">Giới thiệu VIRTUAL PHONE</a> <br> </p>
         <p><a href="#">Hướng dẫn đặt hàng</a> <br> </p>
         <p><a href="#">Chính sách đổi trả và bảo hành</a> <br> </p>
         <p><a href="#">Chính sách bảo mật</a> <br> </p>
-        <p><a href="#">Liên hệ XSHOP</a> <br> </p>
+        <p><a href="#">Liên hệ VIRTUAL PHONE</a> <br> </p>
         <p><a href="#">Hệ thống cửa hàng</a></p>
     </div>
 

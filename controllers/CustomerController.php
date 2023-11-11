@@ -68,7 +68,7 @@ function login()
             $mat_khau = $_POST['mat_khau'];
             // $sql = "select * from khach_hang where ho_ten='$ho_ten' and mat_khau='" . md5($mat_khau) . "'";
             // $kq = $conn->query($sql);
-            $stmt = $conn->prepare("SELECT * FROM khach_hang WHERE ho_ten = ? AND mat_khau = ? AND kich_hoat ='active'");
+            $stmt = $conn->prepare("SELECT * FROM clients WHERE ho_ten = ? AND mat_khau = ? AND kich_hoat ='active'");
             $stmt->execute([$ho_ten, md5($mat_khau)]);
             $row = $stmt->fetch();
             if ($row) {
@@ -114,7 +114,7 @@ function band()
 
         try {
             // Lấy kich_hoat hiện tại bằng cách truy vấn
-            $query_select_role = "SELECT kich_hoat FROM khach_hang WHERE ma_kh = :ma_kh";
+            $query_select_role = "SELECT kich_hoat FROM clients WHERE ma_kh = :ma_kh";
             $stmt = $conn->prepare($query_select_role);
             $stmt->bindParam(':ma_kh', $ma_kh);
             $stmt->execute();
@@ -126,7 +126,7 @@ function band()
             $newKichHoat = ($currentKichHoat == 'active') ? 'band' : 'active';
 
             // Thực hiện truy vấn UPDATE để cập nhật kich_hoat mới
-            $query_update_kich_hoat = "UPDATE khach_hang SET kich_hoat = :new_kich_hoat WHERE ma_kh = :ma_kh";
+            $query_update_kich_hoat = "UPDATE clients SET kich_hoat = :new_kich_hoat WHERE ma_kh = :ma_kh";
             $stmt = $conn->prepare($query_update_kich_hoat);
             $stmt->bindParam(':new_kich_hoat', $newKichHoat);
             $stmt->bindParam(':ma_kh', $ma_kh);
@@ -151,7 +151,7 @@ function role()
         $ma_kh = $_POST['ma_kh'];
 
         try {
-            $query_select_role = "SELECT vai_tro FROM khach_hang WHERE ma_kh = :ma_kh";
+            $query_select_role = "SELECT vai_tro FROM clients WHERE ma_kh = :ma_kh";
             $stmt = $conn->prepare($query_select_role);
             $stmt->bindParam(':ma_kh', $ma_kh);
             $stmt->execute();
@@ -163,7 +163,7 @@ function role()
             $newRole = ($currentRole == 'user') ? 'admin' : 'user';
 
             // Thực hiện truy vấn UPDATE để cập nhật kich_hoat mới
-            $query_update_role = "UPDATE khach_hang SET vai_tro = :new_role WHERE ma_kh = :ma_kh";
+            $query_update_role = "UPDATE clients SET vai_tro = :new_role WHERE ma_kh = :ma_kh";
             $stmt = $conn->prepare($query_update_role);
             $stmt->bindParam(':new_role', $newRole);
             $stmt->bindParam(':ma_kh', $ma_kh);

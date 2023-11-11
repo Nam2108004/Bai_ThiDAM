@@ -112,7 +112,7 @@ require_once "./models/db.php";
         </thead>
         <tbody>
           <?php
-          $sql = "SELECT * FROM khach_hang";
+          $sql = "SELECT * FROM clients";
           $result = $conn->query($sql);
           foreach ($result as $key => $row) {
 

@@ -46,7 +46,7 @@ require "./models/db.php";
                 <select name="ma_loai" class="form-select" aria-label="Default select example" required>
                     <!-- <option selected>Chọn danh mục</option> -->
                     <?php
-                    $sql = "SELECT * FROM loai";
+                    $sql = "SELECT * FROM categorys";
                     $result = $conn->query($sql);
                     foreach ($result as $key => $row) {
                     ?>

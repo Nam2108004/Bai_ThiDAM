@@ -49,7 +49,7 @@ require "./models/db.php";
                     <label class="form-label">Danh mục</label>
                     <select name="ma_loai" class="form-select" aria-label="Default select example" required>
                         <?php
-                        $sql = "SELECT * FROM loai";
+                        $sql = "SELECT * FROM categorys";
                         $result = $conn->query($sql);
                         foreach ($result as $key => $row) {
                         ?>

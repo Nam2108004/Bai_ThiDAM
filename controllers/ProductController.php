@@ -16,7 +16,7 @@ function detailProduct()
         $ma_hh = $_GET['ma_hh'];
         global $conn;
         // Truy vấn SQL để tăng giá trị so_luot_xem lên 1 cho sản phẩm cụ thể
-        $sql = "UPDATE hang_hoa SET so_luot_xem = so_luot_xem + 1 WHERE ma_hh = $ma_hh";
+        $sql = "UPDATE products SET so_luot_xem = so_luot_xem + 1 WHERE ma_hh = $ma_hh";
         $conn->query($sql);
     } else {
         echo "Lỗi";

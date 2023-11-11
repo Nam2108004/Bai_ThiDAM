@@ -61,7 +61,7 @@
         <section id="content">
 
             <?php include 'models/db.php';
-            $sql = "select * from hang_hoa where deleted = 1 ORDER BY ngay_nhap DESC LIMIT 8";
+            $sql = "select * from products where deleted = 1 ORDER BY ngay_nhap DESC LIMIT 8";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $rows) {
             ?>
@@ -88,7 +88,7 @@
         <section id="content">
 
             <?php include 'models/db.php';
-            $sql = "select * from hang_hoa where deleted = 1 ORDER BY so_luot_xem DESC LIMIT 8 ";
+            $sql = "select * from products where deleted = 1 ORDER BY so_luot_xem DESC LIMIT 8 ";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $rows) {
             ?>
@@ -114,7 +114,7 @@
         <section id="content">
 
             <?php include 'models/db.php';
-            $sql = "select * from hang_hoa where deleted = 1 and dac_biet = 'Đặc Biệt' LIMIT 8 ";
+            $sql = "select * from products   where deleted = 1 and dac_biet = 'Đặc Biệt' LIMIT 8 ";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $rows) {
             ?>

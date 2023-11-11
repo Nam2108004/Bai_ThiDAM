@@ -5,7 +5,7 @@ require_once 'db.php';
 function getAllProduct()
 {
     global $conn;
-    $stmt = $conn->prepare("SELECT * FROM hang_hoa");
+    $stmt = $conn->prepare("SELECT * FROM products");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -13,7 +13,7 @@ function getAllProduct()
 function insertProduct($ten_hh, $don_gia, $giam_gia, $hinh, $ngay_nhap, $ma_loai, $dac_biet, $so_luot_xem, $mo_ta)
 {
     global $conn;
-    $stmt = $conn->prepare("INSERT INTO hang_hoa (ten_hh, don_gia, giam_gia, hinh, ngay_nhap, ma_loai, dac_biet, so_luot_xem, mo_ta) VALUES ('$ten_hh', '$don_gia', '$giam_gia', '$hinh',' $ngay_nhap', '$ma_loai', '$dac_biet', '$so_luot_xem', '$mo_ta')");
+    $stmt = $conn->prepare("INSERT INTO products (ten_hh, don_gia, giam_gia, hinh, ngay_nhap, ma_loai, dac_biet, so_luot_xem, mo_ta) VALUES ('$ten_hh', '$don_gia', '$giam_gia', '$hinh',' $ngay_nhap', '$ma_loai', '$dac_biet', '$so_luot_xem', '$mo_ta')");
     $stmt->execute();
     return $stmt->fetch();
 }
@@ -21,7 +21,7 @@ function insertProduct($ten_hh, $don_gia, $giam_gia, $hinh, $ngay_nhap, $ma_loai
 function getProductById($ma_hh)
 {
     global $conn;
-    $stmt = $conn->prepare("SELECT * FROM hang_hoa WHERE ma_hh = '$ma_hh'");
+    $stmt = $conn->prepare("SELECT * FROM products WHERE ma_hh = '$ma_hh'");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

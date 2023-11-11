@@ -3,7 +3,7 @@ require_once 'db.php';
 
 function getAllCategory(){
     global $conn;
-    $stmt = $conn->prepare("SELECT * FROM loai");
+    $stmt = $conn->prepare("SELECT * FROM categorys");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -31,7 +31,7 @@ function updateCategory($ma_loai, $ten_loai){
 
 function removeCategory($ma_loai){
     global $conn;
-    $stmt = $conn->prepare("DELETE FROM loai WHERE ma_loai = '$ma_loai'");
+    $stmt = $conn->prepare("DELETE FROM categorys WHERE ma_loai = '$ma_loai'");
     $stmt->execute();
     return $stmt->fetch();
 }

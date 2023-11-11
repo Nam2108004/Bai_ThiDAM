@@ -146,7 +146,7 @@
     <div id="wapper">
         <div id="topbar">
             <a href="#">
-                <h2> HỆ THỐNG CỬA HÀNG XPHONE</h2>
+                <h2> HỆ THỐNG CỬA HÀNG VIRTUAL PHONE</h2>
             </a>
             <ul>
                 <li>
@@ -192,7 +192,7 @@
             <?php include 'models/db.php';
             if (isset($_GET['ma_hh'])) {
                 $ma_hh = $_GET['ma_hh'];
-                $sqlsp = "select * from hang_hoa where ma_hh='$ma_hh'";
+                $sqlsp = "select * from products where ma_hh='$ma_hh'";
                 $kqsp = $conn->query($sqlsp)->fetch();
             }
             ?>
@@ -254,7 +254,7 @@
         <div id="recommend">
             <?php include 'models/db.php';
             $ma_loai = $kqsp['ma_loai'];
-            $sql = "select * from hang_hoa where ma_loai = $ma_loai";
+            $sql = "select * from products where ma_loai = $ma_loai";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $rows) {
             ?>
@@ -282,11 +282,11 @@
         <div class="comment">
             <?php
             $ma_hh = $_GET['ma_hh'];
-            $sql = "SELECT * FROM binh_luan WHERE ma_hh = $ma_hh";
+            $sql = "SELECT * FROM comments WHERE ma_hh = $ma_hh";
             $kq = $conn->query($sql);
             foreach ($kq as $key => $comment) {
                 $ma_kh = $comment['ma_kh'];
-                $sql_user = "SELECT ho_ten FROM khach_hang WHERE ma_kh = $ma_kh";
+                $sql_user = "SELECT ho_ten FROM clients WHERE ma_kh = $ma_kh";
                 $result_user = $conn->query($sql_user);
                 $user = $result_user->fetch(PDO::FETCH_ASSOC);
             ?>

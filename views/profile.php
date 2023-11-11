@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>VIRTUAL PHONE</title>
     <link rel="stylesheet" href="public/css/showdanhmuc.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -31,7 +31,7 @@
     <div id="wapper">
         <div id="topbar">
             <a href="#">
-                <h2> HỆ THỐNG CỬA HÀNG XPHONE</h2>
+                <h2> HỆ THỐNG CỬA HÀNG VIRTUAL PHONE</h2>
             </a>
             <ul>
                 <li>
@@ -69,7 +69,7 @@
         </div>
         <?php include 'models/db.php';
         $ma_kh = $_SESSION['ma_kh'];
-        $sql = "select * from khach_hang where ma_kh = $ma_kh";
+        $sql = "select * from clients where ma_kh = $ma_kh";
         $kq = $conn->query($sql);
         foreach ($kq as $key => $rows) {
         ?>

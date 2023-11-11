@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dự án mẫu</title>
+  <title>Virtual Phone</title>
   <link rel="stylesheet" href="./public/css/css.css">
   <link rel="stylesheet" href="./public/css/home.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -111,7 +111,7 @@
         <tbody>
           <?php
           global $conn;
-          $sql = "SELECT * FROM loai";
+          $sql = "SELECT * FROM categorys";
           $result = $conn->query($sql);
           foreach ($result as $key => $row) {
 
@@ -149,7 +149,7 @@
 
           <ul>
             <?php
-            $sql = "SELECT * FROM loai";
+            $sql = "SELECT * FROM categorys";
             $result = $conn->query($sql);
             foreach ($result as $key => $row) {
 
@@ -165,7 +165,7 @@
         <div class="box_title">Danh Sách Người Dùng</div>
         <div class="box_content">
           <?php
-          $sql = "SELECT * FROM khach_hang";
+          $sql = "SELECT * FROM clients";
           $result = $conn->query($sql);
           foreach ($result as $key => $row) {
 
