@@ -30,6 +30,19 @@ require "./models/db.php";
                 <input name="ten_hh" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
+                <label class="form-label">Dung Lượng</label>
+                <select name="ma_loai" class="form-select" aria-label="Default select example" required>
+                    <!-- <option selected>Chọn danh mục</option> -->
+                    <?php
+                    $sql = "SELECT * FROM categorys";
+                    $result = $conn->query($sql);
+                    foreach ($result as $key => $row) {
+                    ?>
+                        <option value="<?php echo $row['ma_loai'] ?>"><?php echo $row['ten_loai'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Giá</label>
                 <input name="don_gia" type="number" class="form-control" required>
             </div>

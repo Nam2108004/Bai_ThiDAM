@@ -78,6 +78,9 @@ if (!isset($_SESSION['vai_tro']) || $_SESSION['vai_tro'] !== 'admin') {
             <a class="dropdownbtn" href="?url=comment">Quản lí bình luận</a>
          </li>
          <li class="dropdown">
+            <a class="dropdownbtn" href="?url=dungluong">Quản lí dung lượng</a>
+         </li>
+         <li class="dropdown">
             <a class="dropdownbtn" href="?url=thongke">Thống kê</a>
          </li>
 

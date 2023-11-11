@@ -78,8 +78,17 @@ switch ($url) {
     case 'logout':
         logout();
         break;
+        case 'hienthidungluong':
+            listCapacity();
+            break;
+    
+        case 'themdungluong':
+            addCapacitys();
+            break;
+        case 'suadungluong':
+            editCapacitys();
+            break;
 }
 
-    // case 'logout':
-    //     exitCustomer();
-    // break;
+
+   
